@@ -27,7 +27,15 @@ const config = {
                 test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
                 type: 'asset',
             },
-            // * babel-loader 세팅
+            /**
+             * * babel-loader 세팅
+             *  ! npm install --save-dev @babel/core @babel/cli @babel/preset-env
+             * 
+             * *.babelrc 라는 파일을 생성 후 밑의내용을 적는다
+             * {
+                    "presets": ["@babel/preset-env"]
+                }
+             */
             {
                 test: /\.js$/, // .js 확장자로 끝나는 모든 파일
                 exclude: /node_modules/, // node_modules 폴더 제외
