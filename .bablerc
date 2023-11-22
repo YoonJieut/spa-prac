@@ -2,7 +2,7 @@
   "presets": [
     ["@babel/preset-env", {
       "target" : {
-        "browsers" : ["last 2 versions","IE 10"]
+        "node" : "12.18"
       }
     }]
   ]
