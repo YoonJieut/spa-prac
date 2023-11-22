@@ -49,6 +49,10 @@ module.exports = () => {
         
     } else {
         config.mode = 'development';
+        config.devtool = 'inline-source-map'; // 소스 맵 활성화
+        // * 압축된 번들을 원본 소스코드에 매핑
+        // * 디버깅에 압축된 것 대신 원본 소스를 보여준다.
+        // * 런타임 오류시 정확한 위치를 파악할 수 있다.
     }
     return config;
 };
