@@ -27,19 +27,41 @@ const config = {
                 test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
                 type: 'asset',
             },
-            //babel-loader 세팅
+            // * babel-loader 세팅
             {
                 test: /\.js$/, // .js 확장자로 끝나는 모든 파일
                 exclude: /node_modules/, // node_modules 폴더 제외
                 use: {
                   loader: 'babel-loader', // babel-loader를 사용하여 변환
                 }
+            },
+            // * css 로더 세팅
+            // ! npm install --save-dev style-loader css-loader
+            {
+                test: /\.css$/,
+                use: [
+                  'style-loader', // 스타일 태그로 CSS를 삽입
+                  'css-loader' // CSS 파일을 JavaScript로 변환
+                ]
             }
-
-            // Add your rules for custom modules here
-            // Learn more about loaders from https://webpack.js.org/loaders/
+            // 커스텀 모듈 자리
         ],
     },
+    /**
+     * ! npm install --save-dev webpack-dev-server
+     * "scripts": {
+            "start": "webpack serve --mode development",
+            "build": "webpack --mode production"
+        }
+        npm start로 dist 환경 개발을 시작할 수 있다.
+     */
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'), 
+        // 서버가 제공할 내용의 경로
+        hot: true, // 핫 모듈 교체(HMR) 활성화
+        open: true, // 서버 시작 시 브라우저 열기
+        port: 3000 // 서버 포트 설정 (기본값: 8080)
+    }
 };
 
 module.exports = () => {
