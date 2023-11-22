@@ -56,7 +56,9 @@ const config = {
         npm start로 dist 환경 개발을 시작할 수 있다.
      */
     devServer: {
-        contentBase: path.join(__dirname, 'dist'), 
+        static : {
+            directory : path.join(__dirname, 'dist')
+        }, 
         // 서버가 제공할 내용의 경로
         hot: true, // 핫 모듈 교체(HMR) 활성화
         open: true, // 서버 시작 시 브라우저 열기
